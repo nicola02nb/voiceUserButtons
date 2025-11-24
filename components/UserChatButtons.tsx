@@ -9,10 +9,11 @@ import "./UserChatButtons.css";
 import { openPrivateChannel } from "@utils/discord";
 import { Icon, User } from "@vencord/discord-types";
 import { findByPropsLazy, findComponentByCodeLazy, findStoreLazy } from "@webpack";
-import { Button, NavigationRouter, Tooltip, UserStore } from "@webpack/common";
+import { NavigationRouter, Tooltip, UserStore } from "@webpack/common";
 import { JSX } from "react";
 
 import { settings } from "../settings";
+import { Button } from "@components/Button";
 
 const MediaEngineStore = findStoreLazy("MediaEngineStore");
 const SoundboardStore = findStoreLazy("SoundboardStore");
@@ -33,9 +34,8 @@ function VoiceUserButton({ user, tooltip, icon, onClick }: { user: User; tooltip
             <Tooltip text={tooltip} shouldShow={!disabled}>
                 {({ onMouseEnter, onMouseLeave }) => (
                     <Button
-                        size={Button.Sizes.MIN}
-                        color={Button.Colors.TRANSPARENT}
-                        look={Button.Looks.BLANK}
+                        size={"min"}
+                        variant="none"
                         disabled={disabled}
                         onClick={e => {
                             e.preventDefault();
