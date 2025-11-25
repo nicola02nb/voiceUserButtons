@@ -1,7 +1,7 @@
 .voice-user-buttons {
-    flex: none !important;
+    gap: 1px !important;
 }
 
-div[class^='list_'][class*='collapsed_'] .voice-user-buttons {
-    display: none;
+.voice-user-button-container > button {
+    padding: 1px;
 }

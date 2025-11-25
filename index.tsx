@@ -22,12 +22,13 @@ export default definePlugin({
             find: "\"avatarContainerClass\",\"userNameClassName\"",
             replacement: {
                 match: /(\((\i),\i\){.+?\.flipped])(:\i}\),children:\[)/,
-                replace: "$1$3$self.renderButtons($2?.user),"
+                replace: "$1$3$self.renderButtons($2),"
             }
         }
     ],
-    renderButtons(user?: User) {
-        if (!user) return null;
+    renderButtons(props?: any) {
+        if (!props || props.collapsed || !props.user) return null;
+        const user: User = props.user;
         return (
             <Flex flexDirection={"row"} className="voice-user-buttons">
                 {settings.store.showChatButton && <UserChatButton user={user} />}
