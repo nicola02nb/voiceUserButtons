@@ -19,10 +19,10 @@ export default definePlugin({
     settings,
     patches: [
         {
-            find: "\"avatarContainerClass\",\"userNameClassName\"",
+            find: "(\"VoiceUser\")",
             replacement: {
-                match: /(\((\i),\i\){.+?\.flipped])(:\i}\),children:\[)/,
-                replace: "$1$3$self.renderButtons($2),"
+                match: /(function\((\i)\){let .+?flipped:(\i),.+?\[\i\.\i\]:\3}\),children:\[)/,
+                replace: "$1$self.renderButtons($2),"
             }
         }
     ],
